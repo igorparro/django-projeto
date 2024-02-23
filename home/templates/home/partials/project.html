@@ -1,9 +1,9 @@
 <div class="project project-list-item">
     <div class="project-details">
-        <img src="https:via.placeholder.com/1280x720.png/269fe6" alt="temporario">
+        <img src="{{project.cover.url}}" alt="temporario">
     </div>
     <div class="project-title-container">
-        <h2 class="project-title">Lorem ipsum dolor sit amet.</h2>
+        <h2 class="project-title">{{project.title}}.</h2>
     </div>
     <div class="project-author">
         <span class="project-author-item">
@@ -12,31 +12,41 @@
         </span>
         <span class="project-author-item">
             <i class="fas fa-calendar-alt"></i>
-            19/02/2024 às 11:11
+            {{ project.created_at|date:"d/m/Y" }} às {{ project.created_at|date:"H:i" }}
         </span>
         <span class="project-author-item">
-            <a href="/recipes/category/cafe-da-manha/">
+            <a href="/project/category/rpa/">
                 <i class="fas fa-layer-group"></i>
-                <span>RPA</span>
+                <span>{{project.category.name}}</span>
             </a>
         </span>
     </div>
     <div class="project-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam possimus alias maxime autem unde aliquid, rem officiis perferendis consequatur mollitia? A,
-             non! Consectetur, velit! Sed possimus sunt minus velit quisquam?</p>
+        <p>{{project.description}}</p>
     </div>
     <div class="project-meta-container">
         <div class="project-meta project-bliblio">
             <h3 class="project-meta-title"><i class="fa-solid fa-folder-open"></i> Bibliotecas / Library </h3>
-            <div class="recipe-meta-text">
-                0 Minutos
+            <div class="project-meta-text">
+                {{project.category.name}} <br>
+                {{project.category.name}} <br>
+                {{project.category.name}} <br>
+                
             </div>
         </div>
     </div>
+    {% if is_detail_page is not True %}
         <footer class="project-footer">
-            <a class="recipe-read-more button button-dark button-full-width" href="/recipes/3/">
+            <a class="project-read-more button button-dark button-full-width" href="/projects/3/">
                 <i class="fas fa-eye"></i>
                 <span>ver mais...</span>
             </a>
         </footer>
+    {% endif %}
+
+    {% if is_detail_page is True %}
+    <div class="preparation-steps">
+        {{project.preparation_steps|linebreaksbr}}
+    </div>
+    {% endif %}
 </div> 
