@@ -4,8 +4,7 @@
 
 {% block content %}
 <div class="main-content main-content-list container">
-    {% for project in projects %}
-        {% include 'home/partials/project.html' %}
-    {% endfor %}
+    {% include 'home/partials/home-about.html' %}
+    {% include 'home/partials/home-project.html' %}
 </div>
 {% endblock %}

@@ -1,0 +1,41 @@
+<div class="project project-list-item">
+    <div class="eu project-details">
+        <img src="https://cdn.discordapp.com/attachments/1126356529638027324/1210706012760440882/WhatsApp_Image_2024-02-23_at_18.51.33.jpeg?ex=65eb88d7&is=65d913d7&hm=e347ca612b8d7c166031d23bd6a1d5cfe8538108b5a78d4763123e0cc0cf1fa8&" alt="Temporário">
+    </div>
+    <div class="project-title-container">
+        <h2 class="recipe-title">SOBRE MIM.</h2>
+    </div>
+    <div class="project-author">
+        <span class="project-author-item">
+            <i class="fas fa-user"></i>
+            Igor Parro
+        </span>
+        <span class="recipe-author-item">
+            <i class="fas fa-calendar-alt"></i>
+            16/06/1999
+        </span>
+    </div>
+    <div class="project-content">
+        <p>{{project.description}}</p>
+    </div>
+    <div class="project-meta-container">
+        <div class="project-meta project-bliblio">
+            <div class="project-meta-text">  
+            </div>
+        </div>
+    </div>
+    {% if is_about_page is not True %}
+        <footer class="project-footer">
+            <a class="project-read-more button button-dark button-full-width" href="/about/">
+                <i class="fas fa-eye"></i>
+                <span>ver mais...</span>
+            </a>
+        </footer>
+    {% endif %}
+
+    {% if is_about_page is True %}
+    <div class="preparation-steps">
+        {{project.preparation_steps|linebreaksbr}}
+    </div>
+    {% endif %}
+</div> 
